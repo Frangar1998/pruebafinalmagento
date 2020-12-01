@@ -1,0 +1,12 @@
+<?php /** @var \Hiberus\FranTheme\Block\MiBloque */ ?>
+<h1><?= __('Last Products') ?></h1>
+<ul>
+    <?php foreach($block->getLastProducts() as $product): ?>
+        <li>
+            <?= $escaper->escapeHtml($product->getName()) ?>
+            <a href="<?= $escaper->escapeHtmlAttr($block->getUrl('catalogsearch/result/index', ['q' => $product->getName()])) ?>"><?= __('Search') ?></a>
+        
+        </li>
+    <?php endforeach; ?>
+
+</ul>

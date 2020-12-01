@@ -1,0 +1,15 @@
+.inputcolor(@colorback, @colorfont) {
+    background: @colorback;
+    border-color: @colorback;
+    color: @colorfont;
+}
+
+& when (@media-common = true)  {
+    input[type="text"]{
+        .inputcolor(#CCC, red);
+    }
+
+    h1 {
+        font-family: 'NerkoOne';
+    }
+}

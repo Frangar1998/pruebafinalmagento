@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Hiberus_Library::library" title="Library" translate="title" module="Hiberus_Library" sortOrder="999" resource="Hiberus_Library::library"/>
+        <add id="Hiberus_Library::library_config" title="Configuration" translate="title" module="Hiberus_Library" sortOrder="10" parent="Hiberus_Library::library" action="admin/system_config/edit/section/hiberus_library/" resource="Hiberus_Library::config"/>
+    </menu>
+</config>

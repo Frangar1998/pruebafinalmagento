@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="copyright" remove="true"/>
+
+        <referenceContainer name="footer">
+            <block name="footer_custom" template="Magento_Theme::footer_custom.phtml" after="-"/>
+        </referenceContainer>
+
+        <referenceContainer name="footer-container">
+            <block class="Magento\Theme\Block\Html\Header\Logo" name="logo.footer" template="Magento_Theme::html/header/logo.phtml" before="-"/>
+            <block class="Magento\Cms\Block\Block" name="curso-hiberus-2020">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">curso-hiberus-2020</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Preference for Reverse Dependency -->
+    <preference for="Hiberus\Library\Api\Data\AuthorInterface" type="Hiberus\Library\Model\Author"/>
+    <preference for="Hiberus\Library\Api\AuthorRepositoryInterface" type="Hiberus\Library\Model\AuthorRepository"/>
+    <preference for="Hiberus\Library\Api\Data\BookInterface" type="Hiberus\Library\Model\Book"/>
+    <preference for="Hiberus\Library\Api\BookRepositoryInterface" type="Hiberus\Library\Model\BookRepository"/>
+    <preference for="Hiberus\Library\Api\Data\AuthorSearchResultsInterface" type="Hiberus\Library\Model\AuthorSearchResults" />
+    <preference for="Hiberus\Library\Api\Data\BookSearchResultsInterface" type="Hiberus\Library\Model\BookSearchResults" />
+
+    <!-- Register the Abstract Repositories -->
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Hiberus\Library\Api\AuthorInterface" xsi:type="string">Hiberus\Library\Api\AuthorRepositoryInterface</item>
+                <item name="Hiberus\Library\Api\BookInterface" xsi:type="string">Hiberus\Library\Api\BookRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Hiberus\Library\Api\Data\AuthorInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">hiberus_author</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                </item>
+                <item name="Hiberus\Library\Api\Data\BookInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">hiberus_book</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Add extra operation to the entities persistence, like external relations -->
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Hiberus\Library\Api\Data\AuthorInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="authorReader" xsi:type="string">Hiberus\Library\Model\ResourceModel\Author\Relation\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="authorCreator" xsi:type="string">Hiberus\Library\Model\ResourceModel\Author\Relation\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="authorUpdater" xsi:type="string">Hiberus\Library\Model\ResourceModel\Author\Relation\SaveHandler</item>
+                    </item>
+                </item>
+                <item name="Hiberus\Library\Api\Data\BookInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="bookReader" xsi:type="string">Hiberus\Library\Model\ResourceModel\Book\Relation\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="bookCreator" xsi:type="string">Hiberus\Library\Model\ResourceModel\Book\Relation\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="bookUpdater" xsi:type="string">Hiberus\Library\Model\ResourceModel\Book\Relation\SaveHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Register the hydrator strategy for our entities -->
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Hiberus\Library\Api\Data\AuthorInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Hiberus\Library\Api\Data\BookInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

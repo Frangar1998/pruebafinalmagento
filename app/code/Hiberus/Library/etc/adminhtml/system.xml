@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="library_tab" translate="label" sortOrder="1">
+            <label>LIBRARY</label>
+        </tab>
+        <section id="hiberus_library" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Library Configuration</label>
+            <tab>library_tab</tab>
+            <resource>Hiberus_Library::config</resource>
+            <group id="general_config" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Config Label</label>
+                <hide_in_single_store_mode>1</hide_in_single_store_mode>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="multiplier" translate="label" type="text" sortOrder="1" showInDefault="1" canRestore="1">
+                    <label>Multiplier</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

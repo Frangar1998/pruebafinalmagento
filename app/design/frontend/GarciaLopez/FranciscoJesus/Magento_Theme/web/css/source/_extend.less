@@ -1,0 +1,17 @@
+& when (@media-common = true) {
+
+    footer {
+        &.page-footer {
+            display: none;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    footer {
+        &.page-footer {
+            display: block;
+        }
+    }
+}
+

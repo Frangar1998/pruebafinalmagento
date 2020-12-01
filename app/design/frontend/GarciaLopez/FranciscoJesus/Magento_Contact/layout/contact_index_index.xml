@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="contenedorfran" htmlId="contenedorfran" htmlClass="wrapper" htmlTag="div">
+                <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.fran" template="Magento_Newsletter::subscribe.phtml" />
+            </container>
+        </referenceContainer>
+        <move element="contactForm" destination="contenedorfran" after="-"/>
+    </body>
+</page> 

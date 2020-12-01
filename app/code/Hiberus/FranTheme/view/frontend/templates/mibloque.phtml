@@ -1,0 +1,20 @@
+<?php /** @var \Hiberus\FranTheme\Block\MiBloque */ ?>
+<h1><?= __('Last Products') ?></h1>
+<ul>
+    <?php foreach($block->getLastProducts() as $product): ?>
+        <li class="simpleproduct">
+            <?= $escaper->escapeHtml($product->getName()) ?>
+            <input type="text" class="inputval" value="0"/>
+            <input type="button" class="inputbutton" value="+">
+        </li>
+    <?php endforeach; ?>
+
+</ul>
+
+<script type="text/x-magento-init">
+{
+    ".simpleproduct": {
+        "Hiberus_FranTheme/js/addproduct-fran": {}
+    }
+}
+</script>

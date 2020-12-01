@@ -1,0 +1,8 @@
+<form>
+    <?php if ($name = $block->getRequest()->getParam("name")): ?>
+     <h3>Hello <?= $name ?></h3>
+    <?php else: ?>
+     <input type="text" name="name" />
+     <input type="submit" />
+    <?php endif ?>
+ </form>

@@ -323,6 +323,7 @@ return [
         'Dotdigitalgroup_Chat' => 1,
         'Hiberus_Fran' => 1,
         'Hiberus_FranTheme' => 1,
+        'Hiberus_Garcia' => 1,
         'Hiberus_Library' => 1,
         'Hiberus_Sample' => 1,
         'Klarna_Core' => 1,
